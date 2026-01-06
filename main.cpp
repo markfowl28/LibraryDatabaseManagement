@@ -1,8 +1,12 @@
+// LibraryManagementSystem.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+#include "UpdateDatabaseHeader.h"
+#include "SearchDatabaseHeader.h"
+#include <mysqlx/xdevapi.h>
 #include <iostream>
-#include "updateDatabase.h"
-#include "searchDatabase.h"
 
-int main() {
+int main()
+{
     bool running = true;
     while (running) {
         std::cout << "Welcome to the Library Database Management Tool!" << "\n" << std::endl;
@@ -15,32 +19,35 @@ int main() {
         std::cout << "6. Quit" << "\n" << std::endl;
 
         std::cout << "Enter your choice: ";
+        std::cout << std::endl;
+
         int choice;
         std::cin >> choice;
         switch (choice) {
-            case 1:
-                lookupEntry();
-                break;
-            case 2:
-                createEntry();
-                break;
-            case 3:
-                editEntry();
-                break;
-            case 4:
-                removeEntry();
-                break;
-            case 5:
-                viewAllEntries();
-                break;
-            case 6:
-                running = false;
-                break;
-            default:
-                std::cout << "Invalid choice!" << std::endl;
-                break;
+        case 1:
+            lookupEntry();
+            break;
+        case 2:
+            createEntry();
+            break;
+        case 3:
+            editEntry();
+            break;
+        case 4:
+            removeEntry();
+            break;
+        case 5:
+            viewAllEntries();
+            break;
+        case 6:
+            running = false;
+            break;
+        default:
+            std::cout << "Invalid choice!" << std::endl;
+            break;
         }
     }
+    std::cout << std::endl;
     std::cout << "Thank you! Goodbye!";
     return 0;
 }
