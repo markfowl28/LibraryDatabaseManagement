@@ -4,6 +4,8 @@
 #include "SearchDatabaseHeader.h"
 #include <mysqlx/xdevapi.h>
 #include <iostream>
+#include "Database.h"
+#include <exception>
 
 int main()
 {
@@ -37,7 +39,13 @@ int main()
             removeEntry();
             break;
         case 5:
-            viewAllEntries();
+            try {
+                Database db("lms.db");
+                viewAllEntries(db.get());
+            }
+            catch (const std::exception& e) {
+                std::cerr << e.what() << "\n";
+            }
             break;
         case 6:
             running = false;
@@ -51,3 +59,4 @@ int main()
     std::cout << "Thank you! Goodbye!";
     return 0;
 }
+
