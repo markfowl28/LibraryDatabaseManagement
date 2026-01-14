@@ -1,7 +1,14 @@
 #pragma once
 #include <sqlite3.h>
+#include "Statement.h"
 
-void lookupEntry(sqlite3*);
+bool executeStatement(Statement&);
 
-void viewAllEntries(sqlite3*);;
+void createEntry(sqlite3*);
+
+void editEntry(sqlite3*);
+
+void removeEntry(sqlite3*);
+
+
 
