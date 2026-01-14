@@ -51,6 +51,25 @@ void editEntry() {
 };
 
 void removeEntry() {
-
-
+    Statement stmt(
+    db,
+    "DELETE FROM BOOKS WHERE title = ? COLLATE NOCASE"
+    );
+    
+    std::string book;
+    std::cout << "\n";
+    std::cout << "Please enter the title you wish to remove: ";
+    std::getline(std::cin >> std::ws, book);
+    
+    if (sqlite3_bind_text(stmt.get(), 1,book.c_str(), -1,SQLITE_TRANSIENT) != SQLITE_OK)
+        throw std::runtime_error("Failed to bind title");
+    
+    if (executeStatement(stmt)) {
+        std::cout << book << " removed successfully!\n";
+        std::cout << "\n";
+    }
+    else {
+        throw std::runtime_error("Failed to remove entry");
+    }
 };
+
