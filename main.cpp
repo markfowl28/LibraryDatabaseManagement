@@ -1,7 +1,7 @@
 // LibraryManagementSystem.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-#include "UpdateDatabaseHeader.h"
-#include "SearchDatabaseHeader.h"
+#include "BookCommands.h"
+#include "BookQueries.h"
 #include <mysqlx/xdevapi.h>
 #include <iostream>
 #include "Database.h"
@@ -16,12 +16,12 @@ int main()
         while (running) {
             std::cout << "Welcome to the Library Database Management Tool!" << "\n" << std::endl;
             std::cout << "Please select from the following options: " << std::endl;
-            std::cout << "1. Search database" << std::endl;
-            std::cout << "2. Create new entry" << std::endl;
-            std::cout << "3. Update an entry" << std::endl;
-            std::cout << "4. Delete an entry" << std::endl;
-            std::cout << "5. View current database" << std::endl;
-            std::cout << "6. Quit" << "\n" << std::endl;
+            std::cout << "1) Search database" << std::endl;
+            std::cout << "2) Create new entry" << std::endl;
+            std::cout << "3) Update an entry" << std::endl;
+            std::cout << "4) Delete an entry" << std::endl;
+            std::cout << "5) View current database" << std::endl;
+            std::cout << "6) Quit" << "\n" << std::endl;
 
             std::cout << "Enter your choice: ";
             std::cout << std::endl;
@@ -33,13 +33,13 @@ int main()
                 lookupEntry(db.get());
                 break;
             case 2:
-                createEntry();
+                createEntry(db.get());
                 break;
             case 3:
-                editEntry();
+                editEntry(db.get());
                 break;
             case 4:
-                removeEntry();
+                removeEntry(db.get());
                 break;
             case 5:
                 viewAllEntries(db.get());
@@ -53,7 +53,7 @@ int main()
             }
         }
         std::cout << std::endl;
-        std::cout << "Thank you! Goodbye!";
+        std::cout << "Thank you! Goodbye! \n";
     }
     catch (const std::exception& e) {
         std::cerr << e.what() << "\n";
