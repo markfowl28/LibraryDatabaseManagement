@@ -12,7 +12,7 @@ The application allows a user to:
 * Update existing book entries
 * Delete books safely
 
-This project was built as a **portfolio piece** to showcase practical C++ skills, database interaction, and thoughtful system design.
+“I built this project to deepen my understanding of modern C++ and systems-level programming after working primarily in Java. It focuses on deterministic resource management, clean interfaces, and safe low-level API usage — skills directly applicable to game development and engine-level work.”
 
 ---
 
@@ -40,11 +40,7 @@ The project separates responsibilities into logical modules:
 * **Commands** – All `INSERT`, `UPDATE`, and `DELETE` operations
 * **Statement Wrapper** – RAII abstraction over `sqlite3_stmt*`
 * **Models** – Plain data structures representing database rows
-
-This mirrors real-world data-access patterns and improves maintainability.
-
----
-
+* 
 ## Project Structure
 
 ```
@@ -145,6 +141,8 @@ g++ -std=c++17 src/*.cpp -lsqlite3 -o library_app
 * Real-world CRUD database operations
 * Clean separation of responsibilities
 * Thoughtful handling of edge cases
+* Defensive programming and edge-case handling
+* Experience transitioning from managed languages (Java) to C++ systems programming
 
 ---
 
