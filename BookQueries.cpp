@@ -1,4 +1,4 @@
-#include "SearchDatabaseHeader.h"
+#include "BookQueries.h"
 #include "Database.h"
 #include <iostream>
 #include <sqlite3.h>
@@ -76,5 +76,6 @@ void viewAllEntries(sqlite3* db) {
 		std::cout << "\n";
 	}
 }
+
 
 
