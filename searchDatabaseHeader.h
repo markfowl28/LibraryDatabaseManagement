@@ -1,10 +1,13 @@
 #pragma once
 #include <sqlite3.h>
+#include "Statement.h"
 
-static int callback(void* NotUsed, int argc, char** argv, char** azColName);
+bool printResults(Statement&);
 
-void lookupEntry();
+void lookupEntry(sqlite3*);
 
 void viewAllEntries(sqlite3*);
+
+
 
 
