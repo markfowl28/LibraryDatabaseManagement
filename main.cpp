@@ -1,7 +1,7 @@
 // LibraryManagementSystem.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-#include "UpdateDatabaseHeader.h"
-#include "SearchDatabaseHeader.h"
+#include "BookCommands.h"
+#include "BookQueries.h"
 #include <mysqlx/xdevapi.h>
 #include <iostream>
 #include "Database.h"
