@@ -1,4 +1,4 @@
-#include "UpdateDatabaseHeader.h"
+#include "BookCommands.h"
 #include <iostream>
 #include <sqlite3.h>
 #include "Statement.h"
@@ -174,5 +174,6 @@ void removeEntry(sqlite3* db) {
         throw std::runtime_error("Failed to remove entry");
     }
 }
+
 
 
